@@ -1,8 +1,8 @@
 #ifndef _TEMP_SDLOG_H_
 #define _TEMP_SDLOG_H_
 
-#include <SPI.h>
-#include <SD.h>
+#include <SPI.h> // SD by Arduino
+#include <SD.h> // SD by Arduino
 #include "logtime.h"
 
 namespace temp_log
