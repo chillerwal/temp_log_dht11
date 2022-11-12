@@ -1,10 +1,10 @@
-#include "temp_settings.h"
+#include "temp_settings.h" // <-- PIN setup etc here 
 
-#include "RTClib.h" // DateTime
-#include "dhtnew.h" // Temperature Sensor library
+#include <RTClib.h> // RTCLib by Adafruit
+#include <dhtnew.h> // DHTNEW by Rob Tilaart
 
-#include "temp_sdlog.h"
-#include "logtime.h"
+#include "temp_sdlog.h" // using: SD by Arduino
+#include "logtime.h" // using: RTCLib by Adafruit
 
 #include "TimeHM.h"
 #include "TimeConversion.h"

@@ -1,7 +1,7 @@
 #ifndef _LOGTIME_H_
 #define _LOGTIME_H_
 
-#include "RTClib.h"
+#include <RTClib.h> // RTCLib by Adafruit
 
 namespace sdlog
 {
