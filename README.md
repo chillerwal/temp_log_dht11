@@ -6,3 +6,8 @@ Will also work with DHT22, see setup function.
 - Arduino Uno
 - SD shield (with compatible SD card)
 - DHT11 sensor on PIN 5
+
+## Dependencies
+- SD by Arduino
+- RTCLib by Adafruit
+- DHTNEW by Rob Tilaart
