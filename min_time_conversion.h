@@ -1,7 +1,7 @@
-/*! @file logtime.h
+/*! @file min_time_conversion.h
  *! @author Tobias Rolke (github.com/randomguyfromtheinternet/)
- *! @version 1.1
- *! @date 2022-11-18 
+ *! @version 1.0
+ *! @date 2022-11-18
  *! @copyright GPLv3
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,29 +17,19 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#ifndef _MIN_TIME_CONVERSION_H_
+#define _MIN_TIME_CONVERSION_H_
 
-#ifndef _LOGTIME_H_
-#define _LOGTIME_H_
+#include <Arduino.h>
+#include "min_time_hm.h"
 
-#include <RTClib.h> // RTCLib by Adafruit
-
-namespace sdlog
+namespace min_time
 {
-    class LogTime : public RTC_DS1307{
-        public:
-            LogTime();
-            ~LogTime();
-            String iso_now(bool filesys = false, bool brackets = false) const;
-            String current_filename() const;
-            String year_month() const;
-            String year() const;
-            String zerofill(int value, int numZero = 1) const;
-            void set_prefix(char prefix);
-            void append_separator(String& text) const;
-        private:
-            char prefix;
-    };
+    constexpr char _TIME_SEPARATOR = ':';
+    constexpr char _DURATION_SEPARATOR = '!';
 
+    String to_string(const TimeHM& origin);
 }
+
 
 #endif

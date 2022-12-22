@@ -1,7 +1,7 @@
-/*! @file logtime.h
+/*! @file min_time_conversion.cpp
  *! @author Tobias Rolke (github.com/randomguyfromtheinternet/)
- *! @version 1.1
- *! @date 2022-11-18 
+ *! @version 1.0
+ *! @date 2022-11-18
  *! @copyright GPLv3
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,29 +17,28 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#include "min_time_conversion.h"
 
-#ifndef _LOGTIME_H_
-#define _LOGTIME_H_
-
-#include <RTClib.h> // RTCLib by Adafruit
-
-namespace sdlog
+namespace min_time
 {
-    class LogTime : public RTC_DS1307{
-        public:
-            LogTime();
-            ~LogTime();
-            String iso_now(bool filesys = false, bool brackets = false) const;
-            String current_filename() const;
-            String year_month() const;
-            String year() const;
-            String zerofill(int value, int numZero = 1) const;
-            void set_prefix(char prefix);
-            void append_separator(String& text) const;
-        private:
-            char prefix;
-    };
+    String to_string(const TimeHM& origin)
+    {
+        String out{""};
+		if(origin.is_valid())
+		{
+			unsigned char time[2]{ origin.get_hours(), origin.get_minutes() };
+			out = String((time[0] % 100) / 10)
+				+ String((time[0] % 10))
+				+ String(_TIME_SEPARATOR)
+				+ String((time[1] % 100) / 10)
+				+ String((time[1] % 10));
+		}
+		else
+		{
+			out = "--" + String(_TIME_SEPARATOR) + "--";
+		}
+
+        return out;
+    }
 
 }
-
-#endif

@@ -1,17 +1,29 @@
-/*
- * TimeMH.cpp by Tobias Rolke
- * Version: 2022-06-21/21-30
- * 
- * Only stores hours and minutes in a small memory footprint.
- * Can add and substract times with or without rolling over midnight.
- * There is also a flag for detected invalid times, when overflow is
- * not active.
- *
- * Made for use with Arduino, no dependencies.
+/*! @file min_time_hm.cpp
+ *! @author Tobias Rolke (github.com/randomguyfromtheinternet/)
+ *! @version 1.0
+ *! @date 2022-11-18
+ *! @brief Only stores hours and minutes in a small memory footprint.
+    Can add and substract times with or without rolling over midnight.
+    There is also a flag for detected invalid times, when overflow is
+    not active.
+  
+    Made for use with Arduino, no dependencies.
+ *! @copyright GPLv3
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-
-#include "TimeHM.h"
+#include "min_time_hm.h"
 
 namespace min_time
 {

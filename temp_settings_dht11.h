@@ -1,7 +1,8 @@
-/*! @file logtime.h
+/*! @file temp_settings_ds18b20.h
  *! @author Tobias Rolke (github.com/randomguyfromtheinternet/)
- *! @version 1.1
- *! @date 2022-11-18 
+ *! @version 1.0
+ *! @date 2022-12-22 
+ *! @brief Contains the settings for the Arduino sketch
  *! @copyright GPLv3
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
@@ -17,29 +18,25 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
+#ifndef _TEMP_SETTINGS_DHT11_H_
+#define _TEMP_SETTINGS_DHT11_H_
 
-#ifndef _LOGTIME_H_
-#define _LOGTIME_H_
+#include "Arduino.h"
 
-#include <RTClib.h> // RTCLib by Adafruit
-
-namespace sdlog
+namespace temp_log
 {
-    class LogTime : public RTC_DS1307{
-        public:
-            LogTime();
-            ~LogTime();
-            String iso_now(bool filesys = false, bool brackets = false) const;
-            String current_filename() const;
-            String year_month() const;
-            String year() const;
-            String zerofill(int value, int numZero = 1) const;
-            void set_prefix(char prefix);
-            void append_separator(String& text) const;
-        private:
-            char prefix;
-    };
+    constexpr bool _SERIAL_LOGGING{true};
+    constexpr bool _SD_LOGGING{true};
 
+    constexpr float _OFFSET_TEMPERATURE{-0.0};
+    constexpr float _OFFSET_HUMIDITY{-12.0};
+
+    namespace pin
+    {
+        constexpr uint8_t _TEMP_SENSOR{5};
+        constexpr unsigned char _LED_ONBOARD{13};
+        constexpr unsigned char _SD{10};
+    }
 }
 
 #endif

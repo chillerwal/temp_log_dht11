@@ -1,4 +1,24 @@
-#include "temp_sdlog.h"
+/*! @file temp_sdlog_dht11.cpp
+ *! @author Tobias Rolke (github.com/randomguyfromtheinternet/)
+ *! @version 1.0
+ *! @date 2022-12-22
+ *! @brief SD Logging helper functions for DHT11 sensor
+ *! @copyright GPLv3
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+#include "temp_sdlog_dht11.h"
 
 namespace temp_log
 {    
@@ -35,7 +55,7 @@ namespace temp_log
 
     String readFile(const String& filename)
     {
-        String out = "";
+        String out{ "" };
 
         // check if file exists
         if(!SD.exists(filename))
@@ -59,7 +79,7 @@ namespace temp_log
 
     void log_boot(const sdlog::LogTime& lt)
     {
-        String out {""};
+        String out { "" };
         
         // Generate Output for logging
         out += lt.iso_now(false, false);
@@ -73,7 +93,7 @@ namespace temp_log
 
     void log_temperature(const sdlog::LogTime& lt, const float& current_temperature)
     {
-        String out {""};
+        String out{ "" };
         
         out += lt.iso_now(false, false);
         lt.append_separator(out);
@@ -88,7 +108,7 @@ namespace temp_log
 
     void log_humidity(const sdlog::LogTime& lt, const float& current_humidity)
     {
-        String out {""};
+        String out { "" };
         
         out += lt.iso_now(false, false);
         lt.append_separator(out);

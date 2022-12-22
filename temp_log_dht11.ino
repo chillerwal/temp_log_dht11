@@ -1,13 +1,34 @@
-#include "temp_settings.h" // <-- PIN setup etc here 
+/*! @file temp_log_dht11.ino
+ *! @author Tobias Rolke (github.com/randomguyfromtheinternet/)
+ *! @version 1.0
+ *! @date 2022-12-22 
+ *! @brief Arduino sketch to log temperature and humidity on SD
+    card using a DHT11 sensor
+ *! @copyright GPLv3
+    This program is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
+
+#include "temp_settings_dht11.h" // <-- PIN setup etc here 
 
 #include <RTClib.h> // RTCLib by Adafruit
 #include <dhtnew.h> // DHTNEW by Rob Tilaart
 
-#include "temp_sdlog.h" // using: SD by Arduino
+#include "temp_sdlog_dht11.h" // using: SD by Arduino
 #include "logtime.h" // using: RTCLib by Adafruit
 
-#include "TimeHM.h"
-#include "TimeConversion.h"
+#include "min_time_hm.h"
+#include "min_time_conversion.h"
 
 //////////////////////////////////////////////////////////////////////////
 // LOOP STATES
